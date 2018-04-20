@@ -1,2 +1,3 @@
 # CodeSnippets
-Repository for storing CodeSnippets, work with Boostnote
+Repository for storing CodeSnippets
+Work with Boostnote -> https://boostnote.io/
