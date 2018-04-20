@@ -1,0 +1,24 @@
+createdAt: "2018-04-13T09:39:04.196Z"
+updatedAt: "2018-04-20T11:36:26.862Z"
+type: "SNIPPET_NOTE"
+folder: "44117e2a1faa0f6ff875"
+title: "Transforme"
+description: "Transforme"
+snippets: [
+  {
+    name: "example.java"
+    mode: "Java"
+    content: '''
+      str = Integer.toString(int i);
+      str = FLoat.toString(float i);
+      i = Integer.parseInt(str);
+      f = Float.parseFloat(str);
+    '''
+  }
+]
+tags: [
+  "Java"
+  "Global"
+]
+isStarred: false
+isTrashed: false

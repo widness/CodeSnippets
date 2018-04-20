@@ -1,0 +1,25 @@
+createdAt: "2018-04-13T09:30:29.912Z"
+updatedAt: "2018-04-20T11:36:26.862Z"
+type: "SNIPPET_NOTE"
+folder: "44117e2a1faa0f6ff875"
+title: "Random"
+description: '''
+  Random
+  
+'''
+snippets: [
+  {
+    name: "Main.java"
+    mode: "Java"
+    content: '''
+      Random rand = new Random();
+      int random_integer = rand.nextInt(upperbound-lowerbound) + lowerbound;
+    '''
+  }
+]
+tags: [
+  "Java"
+  "Global"
+]
+isStarred: false
+isTrashed: false

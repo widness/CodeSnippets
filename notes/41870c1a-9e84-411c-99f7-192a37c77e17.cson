@@ -1,0 +1,54 @@
+createdAt: "2018-04-20T11:13:23.131Z"
+updatedAt: "2018-04-20T11:36:26.862Z"
+type: "SNIPPET_NOTE"
+folder: "44117e2a1faa0f6ff875"
+title: "Split"
+description: "Split"
+snippets: [
+  {
+    name: "example.java"
+    mode: "Java"
+    content: '''
+      public class StringSplitter {
+      	private String[] answer;
+      	private String[] splitIt;
+      	private String finalAnswer;
+      	
+      	private String CONTAINE = " ";
+      	
+      	private int counter;
+      	
+      	public StringSplitter(String str){
+      
+      		//	-- Control if containing space.
+      		if(str.contains(CONTAINE)){
+      			splitIt = str.split(CONTAINE);
+      			answer = new String[splitIt.length];
+      		} else {
+      			throw new IllegalArgumentException("String: " + str + " does not contain space");
+      		}
+      		
+      		counter = 1;
+      		
+      		answer[0] = "(";
+      		for (int i = 0; i < splitIt.length; i++) {
+      			answer[i] = splitIt[i];
+      			counter++;
+      		}
+      		answer[counter] = ")";
+      		
+      		//	-- Reform an unique String
+      		for (int i = 0; i < answer.length; i++) {
+      			finalAnswer = finalAnswer + answer[i];
+      		}
+      	}
+      }
+    '''
+  }
+]
+tags: [
+  "Java"
+  "Global"
+]
+isStarred: false
+isTrashed: false

@@ -1,0 +1,25 @@
+createdAt: "2018-04-13T09:39:47.814Z"
+updatedAt: "2018-04-20T11:36:26.862Z"
+type: "SNIPPET_NOTE"
+folder: "44117e2a1faa0f6ff875"
+title: "Scanner"
+description: "Scanner"
+snippets: [
+  {
+    name: "example.java"
+    mode: "Java"
+    content: '''
+      Scanner sc = new Scanner(System.in);
+       
+      String str = sc.nextLine();
+      int nr = sc.nextInt();
+      System.out.println("Output : " + str);
+    '''
+  }
+]
+tags: [
+  "Java"
+  "Global"
+]
+isStarred: false
+isTrashed: false
