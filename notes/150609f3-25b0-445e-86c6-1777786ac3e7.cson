@@ -1,19 +1,99 @@
 createdAt: "2018-04-20T11:27:58.550Z"
-updatedAt: "2018-04-20T11:36:26.862Z"
+updatedAt: "2018-04-20T12:30:30.103Z"
 type: "SNIPPET_NOTE"
 folder: "44117e2a1faa0f6ff875"
 title: "Model"
-description: "Model"
+description: '''
+  Model
+  Containe: TxtField - Slider - CheckBox
+'''
 snippets: [
   {
     name: "Main.java"
     mode: "Java"
-    content: ""
+    content: '''
+      import javax.swing.DefaultBoundedRangeModel;
+      import javax.swing.DefaultButtonModel;
+      import javax.swing.JToggleButton;
+      import javax.swing.text.DefaultStyledDocument;
+      import javax.swing.text.Document;
+      
+      
+      public class Main {
+      
+          public static void main(String[] args) {
+              //TextField
+              Document model0 = new DefaultStyledDocument(); // ou PlainDocument();
+      
+              //Range
+              DefaultBoundedRangeModel model1 = new DefaultBoundedRangeModel();
+              DefaultBoundedRangeModel model2 = new DefaultBoundedRangeModel();
+      
+              //CheckBox
+              DefaultButtonModel model3 = new JToggleButton.ToggleButtonModel();
+              DefaultButtonModel model4 = new JToggleButton.ToggleButtonModel();
+      
+              View firstSlider = new View(model0, model1, model2, model3, model4);
+              View secondSlider = new View(model0, model1, model2, model3, model4);
+      
+              secondSlider.setLocation(200, 200);
+          }
+      }
+    '''
   }
   {
     name: "View.java"
     mode: "Java"
-    content: ""
+    content: '''
+      import java.awt.BorderLayout;
+      import javax.swing.*;
+      import javax.swing.text.Document;
+      
+      
+      public class View extends JFrame {
+      
+          //TextArea
+          private JTextArea textArea1 = new JTextArea();
+      
+          // Slider
+          private JSlider slider1 = new JSlider(JSlider.VERTICAL);
+          private JSlider slider2 = new JSlider(JSlider.VERTICAL);
+      
+          // CheckBox
+          private JCheckBox check1 = new JCheckBox("Mute All");
+          private JCheckBox check2 = new JCheckBox("Mute Aux 1");
+      
+          // Container
+          private JPanel container = new JPanel();
+      
+          public View(Document mTextArea1,
+                      DefaultBoundedRangeModel mSlider1, DefaultBoundedRangeModel mSlider2,
+                      DefaultButtonModel box1, DefaultButtonModel box2) {
+      
+              // Init JFrame
+              this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+              this.setSize(500, 300);
+              this.setVisible(true);
+      
+              this.add(textArea1, BorderLayout.CENTER);
+      
+              this.add(slider1, BorderLayout.WEST);
+              this.add(slider2, BorderLayout.EAST);
+      
+              container.add(check1, BorderLayout.WEST);
+              container.add(check2, BorderLayout.EAST);
+              this.add(container, BorderLayout.SOUTH);
+      
+              textArea1.setDocument(mTextArea1);
+      
+              slider1.setModel(mSlider1);
+              slider2.setModel(mSlider2);
+      
+              check1.setModel(box1);
+              check2.setModel(box2);
+          }
+      }
+    '''
   }
 ]
 tags: [
