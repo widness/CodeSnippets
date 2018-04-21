@@ -3,7 +3,17 @@
     {
       "key": "44117e2a1faa0f6ff875",
       "color": "#B013A4",
-      "name": "Java"
+      "name": "Java - Global"
+    },
+    {
+      "key": "2c600d84e9e2b5d22bbd",
+      "color": "#2BA5F7",
+      "name": "Java - Choix d'école"
+    },
+    {
+      "key": "7c6ada4f8239773b8081",
+      "color": "#E10051",
+      "name": "Java - Sockets"
     }
   ],
   "version": "1.0"
