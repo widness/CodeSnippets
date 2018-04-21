@@ -1,0 +1,18 @@
+createdAt: "2018-04-21T09:35:22.268Z"
+updatedAt: "2018-04-21T09:35:43.423Z"
+type: "MARKDOWN_NOTE"
+folder: "124a4ca044646e704764"
+title: "Vim Doc"
+content: '''
+  Vim Doc
+  touche mon_fichier -> créer un fichier
+  vim mon_fichier.txt
+  :w -> sauvegarder
+  :q -> quitter
+  :X -> sauvegarder & quitter
+'''
+tags: [
+  "Doc"
+]
+isStarred: false
+isTrashed: false

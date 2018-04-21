@@ -14,6 +14,11 @@
       "key": "7c6ada4f8239773b8081",
       "color": "#E10051",
       "name": "Java - Sockets"
+    },
+    {
+      "key": "124a4ca044646e704764",
+      "color": "#000000",
+      "name": "Global"
     }
   ],
   "version": "1.0"

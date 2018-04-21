@@ -1,0 +1,49 @@
+createdAt: "2018-04-21T09:32:03.182Z"
+updatedAt: "2018-04-21T09:34:31.734Z"
+type: "MARKDOWN_NOTE"
+folder: "124a4ca044646e704764"
+title: "Git Cmd"
+content: '''
+  Git Cmd
+  git init                            -> Initialise le répertoire
+  git status                        -> Status de git
+  git add new.md              -> Créer nouveau fichier
+  git add .                         -> Ajouter tout les fichier
+  git commit -m "description" -> Enregistre état actuel
+  git commit -a -m "descr."   -> Ajoute puis enregistre
+  git log                             -> Display les commits
+  git checkout commitSHAD     -> Déplace au niveau du SHAD
+  git checkout branchName     -> Déplace dans une autre branche
+  git checkout master         -> Reviens au menu principal
+  git revert commitSHAD    -> Créer une copie invers du SHAD
+  git commit --amend -m "new" -> change le message du dernier commit
+  git reset --hard                -> annule tous les changement pas ncore commités
+  git clone url                      -> clone l'url cible
+  cat test.md                       -> Affiche contenue
+  git remote add origin [url]   -> Se lie au contenue
+  git push origin master      -> Export sur GitHub
+  git pull origin master        -> Import depuis GitHub
+  git branch                        -> Nom de la branche
+  git branch newName        -> Nouvel branche
+  git branch -d name          -> Delete la branche
+  git branch -b newName   -> Nouvel branche et se place dedans
+  git merge brancheB         -> Merge à la branche de l'actuel checkout
+  git mergetool vimdiff       -> Aide à la résolution des conflits
+  git blame nomFichier.md     -> Afficher qui a modifié (donne le SHA)
+  git show SHA                  -> Montre les modification apportées
+  git stash                          -> Met de côté les modifiations en cours
+  git stash apply                -> Repprend les modifications
+  git stash pop                  ->             "                et delete stash
+   
+  --- Création de fichier et fichier ignor
+  touche mon_fichier        -> Créer un fichier
+  touche .gitignore           -> Fichie à ignorer
+      -> Ecrire le nom du fichier à ignorer (entrer le path)
+'''
+tags: [
+  "Git"
+  "Doc"
+  "cmd"
+]
+isStarred: false
+isTrashed: false
