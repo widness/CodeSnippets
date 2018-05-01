@@ -1,0 +1,99 @@
+createdAt: "2018-04-27T11:11:47.540Z"
+updatedAt: "2018-04-27T11:14:47.302Z"
+type: "SNIPPET_NOTE"
+folder: "7c6ada4f8239773b8081"
+title: "Data In/Output"
+description: "Data In/Output"
+snippets: [
+  {
+    name: "DataInput.java"
+    mode: "Java"
+    content: '''
+      public class DataInput {
+      	private Socket socket;
+      	private BufferedReader buffin;
+      
+      	public DataInput(Socket socket) {
+      		this.socket = socket;
+      	}
+      	
+      	public String receiveInfoFromClient() {
+      		try {
+      			buffin = new BufferedReader (new InputStreamReader(socket.getInputStream()));
+      			String message = buffin.readLine();
+      			
+      			buffin.close();
+      			return message;			
+      		} catch (IOException e) {
+      			e.printStackTrace();
+      		}
+      		
+      		return null;
+      	}
+      
+      }
+      
+    '''
+  }
+  {
+    name: "DataOutput.java"
+    mode: "Java"
+    content: '''
+      public class DataOutput {
+      	private Socket socket;
+      	private PrintWriter pout;
+      
+      	public DataOutput(Socket socket) {
+      		this.socket = socket;
+      	}
+      	
+        // @TODO : isnt' working
+      	public void giveListToClient(Clients clientsList){
+      	    try {
+      	        pout = new PrintWriter(socket.getOutputStream());
+      	        pout.println(clientsList);
+      	        pout.flush();
+              } catch (IOException e) {
+                  e.printStackTrace();
+              }
+          }
+      
+      	public void giveInfoToServer(String clientPseudo, String password, String ip, String port) {
+      		String message = clientPseudo + "-" + password + "-" + ip + "-" + port;
+      		
+      		try {
+      			pout = new PrintWriter(socket.getOutputStream());
+      			
+      			
+      			// CHERCHE LES INFORMATIONS
+      //			InetAddress address = InetAddress.getLocalHost();
+      //	        String hostIP = address.getHostAddress() ;
+      //	        String hostName = address.getHostName();
+      			
+      			// WAIT FOR AN INPUT FROM THE CONSOLE
+      //	        sc = new Scanner(System.in);
+      //	        System.out.println("Your message :");
+      //	        String message = sc.nextLine();
+      //			message += "hostIP: " + hostIP + "| hostName: " + hostName;
+      			
+      			
+      			pout.println(message);
+      			pout.flush(); //Send informations
+      			
+      			pout.close();
+      		} catch (IOException e) {
+      			e.printStackTrace();
+      		}
+      	}
+      }
+      
+    '''
+  }
+]
+tags: [
+  "Java"
+  "Socket"
+  "BufferReader"
+]
+isStarred: false
+isTrashed: false

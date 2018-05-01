@@ -1,20 +1,29 @@
 createdAt: "2018-04-13T09:32:47.600Z"
-updatedAt: "2018-04-20T11:36:26.862Z"
+updatedAt: "2018-04-27T11:02:59.844Z"
 type: "SNIPPET_NOTE"
 folder: "44117e2a1faa0f6ff875"
 title: "FileHandler"
-description: "FileHandler"
+description: '''
+  FileHandler
+  !! Don't forget to write the toString in the model object
+'''
 snippets: [
   {
     name: "FileHandler.java"
     mode: "Java"
     content: '''
+      import java.io.*;
+      import java.util.LinkedList;
+      
       public class FileHandler {
-      	public static final String PATH = "daten.txt";
-      	
-      	public static ImportedElement[] readElements () {
+        
+      	public final String PATH = "file.txt";
+        
+        private String line = null;
+        private int c;
+        
+      	public ImportedElement[] readElements () {
       		FileReader reader;
-      		String line = null;
       		String [] lineSplitted = null;
       		LinkedList<ImportedElement> returnList = new LinkedList<ImportedElement>();
       		
@@ -25,10 +34,11 @@ snippets: [
       				line = bufferedReader.readLine();
       				if (line == null) break;
       				
-      				lineSplitted = line.split(" ");
+      				lineSplitted = line.split("-"); // See in the toString of the importedElement
       				returnList.add(new ImportedElement(
       						lineSplitted[0],
-      						Integer.parseInt(lineSplitted[1])));
+      						Integer.parseInt(lineSplitted[1])
+              ));
       			}
       			
       		} catch (FileNotFoundException e) {
@@ -40,7 +50,7 @@ snippets: [
       		return returnList.toArray(new ImportedElement[returnList.size()]);
       	}
       	
-      	public static void writeElement (ImportedElement element) {
+      	public void writeElement (ImportedElement element) {
       		try {
       			FileWriter writer = new FileWriter(new File(PATH),true);
       			writer.write(element.toString() + "\\n");
@@ -49,15 +59,38 @@ snippets: [
       			e.printStackTrace();
       		}
       	}
+        
+          public int countLine (){
+            FileReader reader;
+      
+            try {
+                reader = new FileReader(new File(PATH));
+                BufferedReader bufferedReader = new BufferedReader(reader);
+                c = 0;
+      
+                while ( true ) {
+                    line = bufferedReader.readLine();
+                    c++;
+                    if (line == null) break;
+                }
+                return c;
+            }catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+      
+            return 0;
+        }
       	
-      	public static void readAll (ImportedElement []elements) {
+      	public void readAll (ImportedElement []elements) {
       		System.out.println("Read file:");
       		for (ImportedElement element : elements) {
       			System.out.println(element);
       		}
       	}
       	
-      	public static void main (String [] arguments) {
+      	public void main (String [] arguments) {
       		ImportedElement element = new ImportedElement("Test", 10);
       		writeElement(element);
       		
@@ -102,7 +135,7 @@ snippets: [
       	
       	@Override //Important for the FileHandler
       	public String toString() {
-      		return  varchar + " " + number;
+      		return  varchar + "-" + number;
       	}
        
       }

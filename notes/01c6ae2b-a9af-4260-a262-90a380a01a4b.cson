@@ -1,0 +1,23 @@
+createdAt: "2018-04-27T09:46:16.504Z"
+updatedAt: "2018-04-27T09:46:35.474Z"
+type: "SNIPPET_NOTE"
+folder: "2c600d84e9e2b5d22bbd"
+title: "LineCounter"
+description: "LineCounter"
+snippets: [
+  {
+    name: "example.java"
+    mode: "Java"
+    content: '''
+      BufferedReader reader = new BufferedReader(new FileReader("file.txt"));
+      int lines = 0;
+      while (reader.readLine() != null) {
+          lines++;
+      }
+      reader.close();
+    '''
+  }
+]
+tags: []
+isStarred: false
+isTrashed: false

@@ -1,0 +1,76 @@
+createdAt: "2018-04-27T08:51:55.579Z"
+updatedAt: "2018-04-27T08:54:57.393Z"
+type: "SNIPPET_NOTE"
+folder: "2c600d84e9e2b5d22bbd"
+title: "JTable (MVC)"
+description: '''
+  JTable (MVC)
+  
+'''
+snippets: [
+  {
+    name: "Main.java"
+    mode: "Java"
+    content: '''
+      public class Main {
+          public static void main(String[] args) {
+      
+              Model model = new Model();
+      
+              View t1 = new View(model);
+          }
+      }
+      
+    '''
+  }
+  {
+    name: "Model.java"
+    mode: "Java"
+    content: '''
+      public class Model extends AbstractTableModel{
+          public int getRowCount() {
+              return 15;
+          }
+      
+          public int getColumnCount() {
+              return 6;
+          }
+      
+          public Object getValueAt(int rowIndex, int columnIndex) {
+              return "Fake";
+          }
+      
+      }
+    '''
+  }
+  {
+    name: "View.java"
+    mode: "Java"
+    content: '''
+      public class View extends JFrame{
+          private JTable table = new JTable();
+      
+          public View(Model model) {
+              setVisible(true);
+              setDefaultCloseOperation(EXIT_ON_CLOSE);
+              pack();
+            
+              table.setModel(model);
+      
+              add(table);
+      
+      
+          }
+      }
+      
+    '''
+  }
+  {
+    name: "Controller.java"
+    mode: "Java"
+    content: ""
+  }
+]
+tags: []
+isStarred: false
+isTrashed: false
