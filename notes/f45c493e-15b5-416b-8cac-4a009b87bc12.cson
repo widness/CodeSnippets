@@ -1,0 +1,107 @@
+createdAt: "2018-06-08T07:13:45.376Z"
+updatedAt: "2018-06-08T07:31:06.061Z"
+type: "SNIPPET_NOTE"
+folder: "2c600d84e9e2b5d22bbd"
+title: "JDBC (use all time the con of Add Database)"
+description: '''
+  JDBC (use all time the con of Add Database)
+  
+'''
+snippets: [
+  {
+    name: "Add Database"
+    mode: "Java"
+    content: '''
+      /*
+      * Add the lib hsqldb.jar and sqltool.jar
+      * [HyperSQL Database Engine (HSQLDB) - Browse Files at SourceForge.net](https://sourceforge.net/projects/hsqldb/files/)
+      */
+      
+      private Connection con;
+      
+      Class.forName("org.hsqldb.jdbcDriver");
+      String url = "jdbc:hsqldb:/c:/Temp/hsqldb_file";
+      con = DriverManager.getConnection(url, "sa", "");
+    '''
+  }
+  {
+    name: "SELECT"
+    mode: "Java"
+    content: '''
+      private Statement stmt;
+      
+      stmt = con.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+      stmt.execute("SELECT * FROM ????");
+      
+      ResultSet r = stmt.getResultSet();
+      while (r.next()) {
+      			System.out.print(r.getInt("ID"));
+      			System.out.print(r.getString("STRING1"));
+      			System.out.print(r.getString("STRING2") + "\\n");
+      		}
+      	}
+    '''
+  }
+  {
+    name: "INSERT"
+    mode: "Java"
+    content: '''
+      Statement statement_insertable = con.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE);
+      		statement_insertable.execute("SELECT ID,STRING,STRING FROM ?????");
+      		ResultSet r4 = statement_insertable.getResultSet();
+      		r4.moveToCurrentRow();
+      		r4.updateInt("ID", 6);
+      		r4.updateString("STRING", "New");
+      		r4.updateString("STRING", "New l'hirondelle");
+      		r4.insertRow();
+      		statement_insertable.close();
+    '''
+  }
+  {
+    name: "DELETE"
+    mode: "Java"
+    content: '''
+      	Statement statement_deletable = con.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE);
+      		statement_deletable.execute("SELECT ID,STRING,STRING FROM PERSONNE");
+      		ResultSet r3 = statement_deletable.getResultSet();
+      		while (r3.next()) {
+      			if (r3.getInt("ID") == 2)
+      				r3.deleteRow();
+      		}
+      		statement_deletable.close();
+    '''
+  }
+  {
+    name: "UPDATE"
+    mode: "Java"
+    content: '''
+      Statement statement_update = con.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE);
+      		statement_update.execute("SELECT ID,STRING,STRING FROM ?????");
+      		ResultSet r2 = statement_update.getResultSet();
+      		while (r2.next()) {
+      			r2.updateString("STRING", "L'hirondelle");
+      			r2.updateRow();
+      		}
+      		statement_update.close();
+    '''
+  }
+  {
+    name: "UPDATE prepared stat"
+    mode: "Java"
+    content: '''
+      	PreparedStatement prepared_update = con.prepareStatement
+      				("UPDATE PERSONNE SET PERSPRENOM = ? WHERE PERSID = ?");
+      		prepared_update.setString(1,"L'hirondelle");		
+      		prepared_update.setInt(2, 1);
+      		prepared_update.execute();
+      		prepared_update.close();
+      		
+    '''
+  }
+]
+tags: [
+  "java"
+  "JDBC"
+]
+isStarred: false
+isTrashed: false
